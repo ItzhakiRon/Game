@@ -7,25 +7,41 @@ import javafx.stage.Stage;
 import com.example.projectpentago.controller.PentagoController;
 import com.example.projectpentago.model.GameState;
 import com.example.projectpentago.view.PentagoView;
+import com.example.projectpentago.view.WelcomeView;
 
 public class PentagoGame extends Application {
-    private static final int INITIAL_WINDOW_WIDTH = 600;
-    private static final int INITIAL_WINDOW_HEIGHT = 800;
+    private static final int WINDOW_WIDTH = 600;
+    private static final int WINDOW_HEIGHT = 800;
+    private Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) {
-        GameState gameState = new GameState();
-        PentagoView view = new PentagoView();
-        PentagoController controller = new PentagoController(gameState, view);
+        this.primaryStage = primaryStage;
+        showWelcomeScreen();
+    }
 
-        Scene scene = new Scene(view, INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT);
+    private void showWelcomeScreen() {
+        WelcomeView welcomeView = new WelcomeView();
+        Scene welcomeScene = new Scene(welcomeView, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+        welcomeView.getStartButton().setOnAction(e -> startGame());
 
         primaryStage.setTitle("Pentago");
-        primaryStage.setScene(scene);
-        primaryStage.setMinWidth(INITIAL_WINDOW_WIDTH);
-        primaryStage.setMinHeight(INITIAL_WINDOW_HEIGHT);
+        primaryStage.setScene(welcomeScene);
+        primaryStage.setMinWidth(WINDOW_WIDTH);
+        primaryStage.setMinHeight(WINDOW_HEIGHT);
         primaryStage.show();
+        primaryStage.centerOnScreen();
+    }
 
+    private void startGame() {
+        GameState gameState = new GameState();
+        PentagoView gameView = new PentagoView();
+        PentagoController controller = new PentagoController(gameState, gameView);
+
+        Scene gameScene = new Scene(gameView, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+        primaryStage.setScene(gameScene);
         primaryStage.centerOnScreen();
     }
 
