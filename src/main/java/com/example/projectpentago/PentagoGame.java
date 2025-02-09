@@ -4,10 +4,7 @@ package com.example.projectpentago;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.example.projectpentago.controller.PentagoController;
 import com.example.projectpentago.model.GameState;
-import com.example.projectpentago.view.PentagoView;
-import com.example.projectpentago.view.WelcomeView;
 
 public class PentagoGame extends Application {
     private static final int WINDOW_WIDTH = 600;

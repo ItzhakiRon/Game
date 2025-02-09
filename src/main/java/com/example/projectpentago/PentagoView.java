@@ -1,4 +1,4 @@
-package com.example.projectpentago.view;
+package com.example.projectpentago;
 
 
 import javafx.animation.RotateTransition;
@@ -11,6 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import com.example.projectpentago.model.Cell;
+
 
 public class PentagoView extends VBox {
     private static final int CELL_SIZE = 80;

@@ -1,10 +1,8 @@
-package com.example.projectpentago.controller;
-
+package com.example.projectpentago;
 
 import javafx.scene.control.Alert;
 import com.example.projectpentago.model.Cell;
 import com.example.projectpentago.model.GameState;
-import com.example.projectpentago.view.PentagoView;
 
 public class PentagoController {
     private GameState gameState;
